@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue/dist/jquery-3.2.1.js"></script>
+    <script src="node_modules/vue/dist/zujian.js"></script>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+    }
+    .zuo{
+        width: 300px;
+        height: auto;
+        margin-top:20px;
+    }
+    .parent{
+        width: 200px;
+        height: auto;
+    }
+    .parent>li{
+        width: 100%;
+        cursor: pointer;
+    }
+    .parent>li>span{
+        background: #f9f2f4;
+        display: block;
+        font-size: 18px;
+        color: #000;
+        line-height: 40px;
+        text-indent: 2em;
+    }
+    .child{
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+    .child>li>a{
+        display: block;
+        font-size: 14px;
+        color: #445588;
+        line-height: 20px;
+        text-indent: 2em;
+    }
+</style>
+<div id="vue">
+    <div class="zuo">
+        <parent parent="1" child1="11" child2="111" child3="1111" child4="11111"></parent>
+        <parent parent="2" child1="22"  child2="222" child3="2222" child4="22222"></parent>
+        <parent parent="3" child1="33"></parent>
+        <parent parent="4" child1="44" child2="444"></parent>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Vue.component("parent",{
+        //标签的值
+        props:["parent","child1","child2","child3","child4"],
+        //编译
+        template:"<ul class='parent'><li><span>{{parent}}</span></li><ul class='child'><li><li><a href='javascrpit:;'>{{child1}}</a></li><li><a href='javascrpit:;'>{{child2}}</a></li><li><a href='javascrpit:;'>{{child3}}</a></li><li><a href='javascrpit:;'>{{child4}}</a></li></ul></ul>",
+    })
+    new Vue({
+        el:"#vue",
+    })
+</script>
